@@ -13,7 +13,7 @@ main{max-width:980px;margin:auto;padding:18px}
 .hero-card,.day,.item,.doc,.hotel,.note{background:var(--card);border:1px solid var(--line);border-radius:18px}
 .hero-card{padding:20px;margin-bottom:18px}.pill{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.08em}
 .hero-card h2{margin-top:8px}.days{display:grid;gap:12px}
-.day{overflow:hidden}.day-head{padding:15px 17px;background:#fafafa;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}
+.day{overflow:hidden}.day.today{border:2px solid var(--accent);box-shadow:0 8px 24px rgba(91,110,225,.12)}.day.today .day-head{background:var(--soft)}.day-head{padding:15px 17px;background:#fafafa;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}
 .day-date{font-weight:800}.city{font-size:13px;color:var(--muted)}
 .timeline{padding:7px 16px 14px}.item{border:0;border-radius:12px;padding:12px 0;background:transparent;display:grid;grid-template-columns:64px 1fr;gap:10px}
 .time{font-weight:800;color:var(--accent)}.item-title{font-weight:700}.item-sub{font-size:13px;color:var(--muted);margin-top:3px}
