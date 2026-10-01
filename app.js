@@ -193,6 +193,7 @@ function mapsUrl(q){ return "https://www.google.com/maps/search/?api=1&query="+e
 
 function renderPlan(){
   const days = document.getElementById("days");
+  if (!days) return;
   days.innerHTML = itinerary.map(([date,city,items])=>`
     <article class="day">
       <div class="day-head"><span class="day-date">${date}</span><span class="city">${city}</span></div>
@@ -255,4 +256,42 @@ document.getElementById("nowBtn").addEventListener("click",()=>{
 document.getElementById("nextTitle").textContent = "26 OCT · Barcelona";
 document.getElementById("nextText").textContent = "Primer día del viaje · Madrid → Barcelona · Simple Plan por la noche";
 
-renderPlan(); renderRoute(); renderDocs(); renderHotels();
+function initApp(){
+  renderPlan();
+  renderRoute();
+  renderDocs();
+  renderHotels();
+
+  const now = new Date();
+  const tripStart = new Date(2026, 9, 26);
+  const tripEnd = new Date(2026, 10, 15);
+  if (now < tripStart) {
+    document.getElementById("nextTitle").textContent = "26 OCT · Barcelona";
+    document.getElementById("nextText").textContent = "Primer día del viaje · Madrid → Barcelona · Simple Plan por la noche";
+  } else if (now > tripEnd) {
+    document.getElementById("nextTitle").textContent = "Viaje terminado ❤️";
+    document.getElementById("nextText").textContent = "15 NOV · Madrid → Lima";
+  } else {
+    const idx = itinerary.findIndex(d => {
+      const [day, month] = d[0].split(" ");
+      const monthNum = month === "OCT" ? 9 : 10;
+      return new Date(2026, monthNum, Number(day)).toDateString() === now.toDateString();
+    });
+    if (idx >= 0) {
+      const [date, city, items] = itinerary[idx];
+      document.getElementById("nextTitle").textContent = date + " · " + city;
+      document.getElementById("nextText").textContent = items[0][1] + (items[0][2] ? " · " + items[0][2] : "");
+      const card = document.querySelectorAll(".day")[idx];
+      if (card) {
+        card.classList.add("today");
+        setTimeout(() => card.scrollIntoView({behavior:"smooth", block:"start"}), 250);
+      }
+    }
+  }
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initApp);
+} else {
+  initApp();
+}
