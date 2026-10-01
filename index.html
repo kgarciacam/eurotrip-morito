@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eurotrip Morito 2026</title>
+  <meta name="theme-color" content="#18202b">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <div class="eyebrow">🇪🇺 EUROTRIP MORITO</div>
+      <h1>Kathy + Morito</h1>
+      <p>26 OCT — 15 NOV 2026</p>
+    </div>
+    <button id="nowBtn" class="primary">⚡ ¿Qué necesito ahora?</button>
+  </header>
+
+  <nav class="tabs" aria-label="Secciones">
+    <button class="tab active" data-tab="plan">🗓️ Plan</button>
+    <button class="tab" data-tab="map">🗺️ Mapa</button>
+    <button class="tab" data-tab="docs">🎫 Documentos</button>
+    <button class="tab" data-tab="hotels">🏨 Hoteles</button>
+  </nav>
+
+  <main>
+    <section id="plan" class="section active">
+      <div class="hero-card">
+        <span class="pill">PRÓXIMO</span>
+        <h2 id="nextTitle">Cargando…</h2>
+        <p id="nextText"></p>
+      </div>
+      <div id="days" class="days"></div>
+    </section>
+
+    <section id="map" class="section">
+      <div class="section-head">
+        <h2>🗺️ Ruta del viaje</h2>
+        <p>Mapa esquemático + acceso rápido a Google Maps.</p>
+      </div>
+      <div class="route" id="route"></div>
+      <div class="note">📍 Los enlaces abren Google Maps para la ruta o lugar seleccionado.</div>
+    </section>
+
+    <section id="docs" class="section">
+      <div class="section-head">
+        <h2>🎫 Mis documentos</h2>
+        <p>Los archivos pueden vivir en tu Google Drive. Aquí iremos poniendo sus enlaces.</p>
+      </div>
+      <div id="docsGrid" class="grid"></div>
+    </section>
+
+    <section id="hotels" class="section">
+      <div class="section-head">
+        <h2>🏨 Hoteles</h2>
+        <p>Reservas y ubicaciones, organizadas por ciudad.</p>
+      </div>
+      <div id="hotelsGrid" class="grid"></div>
+    </section>
+  </main>
+
+  <footer>Eurotrip Morito 2026 · información compartida para Kathy + Morito</footer>
+  <script src="app.js"></script>
+</body>
+</html>
